@@ -1,0 +1,68 @@
+<!-- -->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <span class="text-primary">{{ ingresso.no_festa}}</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="checkout-hotel detail-bg">
+  <div class="card round">
+    <div class="hotel-bg" [ngStyle]="{'background-image': 'url(' + img + ')'}">
+      <div class="bg-filter" text-center>
+        <div>
+          <h5 ion-text class="text-white" no-margin> {{ festa.no_nome}}</h5>
+          <span ion-text class="text-white">{{ festa.dt_festa}} {{ festa.dc_hora}}</span>
+          <div margin-top>
+            <h5 ion-text class="text-white" no-margin>{{ no_lote }}</h5>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="border-bottom" text-center padding>
+      <p>Código do Ingresso:</p>
+      <h1 no-margin ion-text color="primary" class="bold">{{ ingresso.cd_codigo }}</h1>
+    </div>
+
+    <!--total price-->
+    <div padding>
+      <h6 class="pull-left mt-half" no-margin ion-text>Valor do Ingresso:</h6>
+      <h4 class="pull-right bold" ion-text color="dark" no-margin>R$ {{ ingresso.nm_valor }}</h4>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <!--more info-->
+  <div class="card round" margin-top on-click="goToEnviarIngresso(ingresso)">
+    <ion-item class="no-border">
+      <ion-icon name="paper-plane" item-left color="primary"></ion-icon>
+      <div>
+        <span class="bold" ion-text color="primary">Enviar Ingresso</span>
+        <br/>
+        <span ion-text style="white-space: normal;">Você pode passar seu ingresso para outra pessoa.</span>
+      </div>
+    </ion-item>
+  </div>
+
+   <!--more info-->
+   <div class="card round" margin-top on-click="goToCheckin(ingresso)">
+    <ion-item class="no-border">
+      <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline" item-left color="primary">
+      </ion-icon>
+      <div>
+        <span class="bold" ion-text color="primary">Fazer Check-In</span>
+        <br/>
+        <span ion-text style="white-space: normal;">Você deve fazer check-in frente a pessoa responsável na portaria.</span>
+      </div>
+    </ion-item>
+  </div>
+
+  
+
+  
+
+</ion-content>

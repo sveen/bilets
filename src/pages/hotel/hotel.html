@@ -1,0 +1,66 @@
+<ion-header>
+
+  <ion-navbar class="text-primary">
+    <ion-title>
+      <span class="text-primary">Hotel</span>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="common-bg">
+  <!-- Show map here -->
+  <div id="map"></div>
+
+  <ion-toolbar color="primary" padding-horizontal>
+    <p ion-text class="text-white" no-padding>
+      <strong>8</strong> results found!
+    </p>
+  </ion-toolbar>
+
+  <!--list of hotels-->
+  <ion-grid class="list-hotels" no-padding>
+    <ion-row *ngFor="let hotel of hotels" no-padding>
+      <ion-col no-padding tappable (click)="viewHotel(hotel.id)">
+        <div class="hotel-bg" [ngStyle]="{'background-image': 'url(' + hotel.thumb + ')'}">
+          <div class="bg-filter">
+            <div class="discount" *ngIf="hotel.sale_price">{{ (100 * (1 - hotel.price / hotel.sale_price)).toFixed(0)
+              }}%
+            </div>
+            <div class="bottom-info">
+
+              <div>
+                <div class="pull-left">
+                  <h5 ion-text class="text-white">{{ hotel.name }}</h5>
+                </div>
+                <div class="pull-right">
+                  <ion-badge class="square badge-right" color="secondary">
+                  {{ hotel.numb_available_rooms }} rooms left
+                  </ion-badge>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div>
+                <div class="pull-left">
+                  <ion-badge class="square" color="secondary">{{ hotel.rating }}</ion-badge>
+                  <span class="rating-label text-white" ion-text> of 5 - guest rating</span>
+                </div>
+                <div class="pull-right">
+                  <span class="price text-white" *ngIf="!hotel.sale_price"
+                        ion-text>{{ hotel.price | currency:'USD':true:'2.0' }}</span>
+                  <span class="origin-price" *ngIf="hotel.sale_price">{{ hotel.price | currency:'USD':true:'2.0' }}</span>
+                  <span class="sale-price text-white bold" *ngIf="hotel.sale_price" ion-text>{{ hotel.sale_price | currency:'USD':true:'2.0' }}</span>
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

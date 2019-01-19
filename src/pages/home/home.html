@@ -1,0 +1,87 @@
+<!-- -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle color="primary">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="text-primary">
+        <strong>Festas na Região</strong>
+      </span>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="presentNotifications($event)" color="primary">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button tappable (click)="goToAccount()" color="primary">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="common-bg">
+  <!--slides-->
+  <ion-card *ngFor='let festa of festas'>
+    <img src="{{ g_url }}img/festa/{{ festa.imagem }}" (click)="goToFesta(festa)" />
+    <ion-card-content no-padding>
+      <h1 text-center style="margin-top:0px;">
+        <strong>
+          {{ festa.no_nome }}
+        </strong>
+      </h1>
+      <p no-padding text-center style="margin-top:0px;color:#000000;">
+        <strong>
+          {{ festa.dt_festa }}, {{ festa.dc_local }}
+        </strong>
+      </p>
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>
+          {{ festa.ingressos }}
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button icon-start color="primary" tappable clear small (click)="goToFesta(festa)">
+          <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+          Detalhes
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+
+
+
+
+
+
+<!--
+  <ion-card *ngFor='let festa of festas' (click)="goToFesta(festa)" id="festas-card21">
+    <ion-list>
+      <ion-item id="festas-list-item-container2" class="item">
+        <div id="festas-markdown2" class="show-list-numbers-and-dots">
+          <h1 text-center style="margin-top:0px;">
+            <strong>
+              {{ festa.no_nome }}
+            </strong>
+          </h1>
+        </div>
+      </ion-item>
+      <div class="imagem">
+        <img src="{{ g_url }}img/festa/{{ festa.imagem }} " />
+      </div>
+      <ion-item id="festas-list-item-container2">
+        <div id="festas-markdown2" class="show-list-numbers-and-dots">
+          <p text-center style="margin-top:0px;color:#000000;">
+            <strong>
+              {{ festa.dt_festa }}, {{ festa.dc_local }}
+            </strong>
+          </p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-card>-->
+</ion-content>

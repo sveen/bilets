@@ -1,0 +1,72 @@
+<!-- -->
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        <span class="text-primary">{{ lote.no_nome }}</span>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding class="checkout-hotel detail-bg">
+    <div class="card round">
+      <div class="hotel-bg" [ngStyle]="{'background-image': 'url(' + img + ')'}">
+        <div class="bg-filter" text-center>
+          <div>
+            <h5 ion-text class="text-white" no-margin> {{ festa.no_nome}}</h5>
+            <span ion-text class="text-white">{{ festa.dt_data}}  {{ festa.dc_hora}}</span>
+            <div margin-top>
+              <span ion-text color="light">{{ festa.dc_local}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="border-bottom" padding>
+        <h5 no-margin ion-text color="primary" class="bold">{{ lote.no_nome }}</h5>
+        <span ion-text>{{ lote.dc_descricao }}</span>
+      </div>
+  
+      <!--total price-->
+      <div padding>
+        <h6 class="pull-left mt-half" no-margin ion-text>Valor do Ingresso:</h6>
+        <h4 class="pull-right bold" ion-text color="dark" no-margin>R$ {{ lote.nm_valor }}</h4>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <p></p>
+    <ion-list *ngIf="!lote.ingressos">
+      <ion-item style="color: red">
+        <ion-note item-start>
+            Atenção
+        </ion-note>
+        Venda do lote encerrada.
+      </ion-item>
+    </ion-list>
+
+
+    <div class="card round" margin-top *ngIf="lote.ingressos">
+      <ion-item class="no-border">
+        <ion-icon name="pricetags" item-left color="primary"></ion-icon>
+        <div>
+          <span class="bold" ion-text color="primary">Créditos biLets</span>
+          <br/>
+          <span ion-text>Utilizar meus créditos</span>
+        </div>
+      </ion-item>
+    </div>
+  
+    <!--payment info-->
+    <div class="card round" margin-top *ngIf="lote.ingressos" (click)="goToCompra(lote.id_lote)">
+      <ion-item class="no-border">
+        <ion-icon name="ios-card" item-left color="primary"></ion-icon>
+        <div>
+          <span class="bold" ion-text color="primary">Cartão de Crédito</span>
+          <br/>
+          <span ion-text>Pagar com cartão ou boleto</span>
+        </div>
+      </ion-item>
+    </div>
+    
+  </ion-content>
+  

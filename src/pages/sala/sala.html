@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle color="primary">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="text-primary">
+        <strong>{{ festa.no_nome }}</strong>
+      </span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let chat of chat">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{ g_url }}img/{{ chat.dc_img_perfil }}">
+      </ion-avatar>
+      <h2 (click)="conversa(chat.id_pessoa)">{{ chat.no_nome_completo }}</h2>
+      <p>Disponível para conversar.</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

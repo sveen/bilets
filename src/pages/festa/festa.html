@@ -1,0 +1,72 @@
+<!-- -->
+<ion-header>
+  <ion-navbar class="nav-transparent" color="primary">
+    <ion-title>{{ festa.no_nome }}</ion-title>
+  </ion-navbar>
+  <ion-fab top right class="toptop">
+    <button ion-fab mini round icon-only color="primary">
+      <ion-icon name="share-alt" class="text-white"></ion-icon>
+    </button>
+    <ion-fab-list>
+      <button ion-fab class="btn-facebook text-white">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+      <button ion-fab class="btn-twitter text-white">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </button>
+      <button ion-fab class="btn-gplus text-white">
+        <ion-icon name="logo-googleplus"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-header>
+<ion-content class="common-bg">
+  <img src="{{ g_url }}img/festa/{{ festa.imagem }}" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;"
+  />
+  <!--price info-->
+  <div class="price-info">
+    <ion-badge *ngIf="festa" class="square badge-left green-bg text-white">{{ festa.dt_festa }}
+    </ion-badge>
+    <ion-badge class="square badge-right" color="danger">
+      a partir das {{ festa.dc_hora }}
+    </ion-badge>
+    <div class="pull-left">
+      <span class="price text-white" *ngIf="festa.dc_local" ion-text style="white-space: normal;">{{ festa.dc_local }}. {{ festa.dc_referencia }}</span>
+    </div>
+    <div class="clear"></div>
+    <div class="pull-right">
+      <ion-fab bottom center edge>
+        <button ion-fab mini (click)="goToChat(festa)">
+          <ion-icon name="chatbubbles" class="text-white"></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+  </div>
+
+  <!-- Atrações -->
+  <div class="border-bottom" padding>
+    <h5 ion-text color="primary">Atrações</h5>
+    <div *ngFor="let atracao of festa.dc_atracoes">
+      <ion-icon name="checkmark" class="text-green"></ion-icon>
+      <span ion-text color="dark">{{ atracao }}</span>
+    </div>
+  </div>
+
+  <!-- Lote de Ingressos -->
+  <div class="border-bottom" padding>
+    <h5 ion-text color="primary">Ingressos</h5>
+    <div class="card round" *ngFor="let lote of lote" margin>
+      <ion-item class="no-border" (click)="goToLote(lote,festa)">
+        <ion-icon ios="ios-pricetags" md="md-pricetags" item-left color="primary"></ion-icon>
+        <div>
+          <span class="bold" ion-text color="primary">{{ lote.no_nome}}</span>
+          <br/>
+          <p style="white-space: normal;">{{ lote.dc_descricao}}</p>
+          <span item-rigth>R$ {{ lote.nm_valor }}</span>
+        </div>
+      </ion-item>
+    </div>
+  </div>
+
+
+</ion-content>

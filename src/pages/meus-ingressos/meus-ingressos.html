@@ -1,0 +1,38 @@
+<!-- -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle color="primary">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="text-primary">
+        <strong>Meus Ingressos</strong>
+      </span>
+    </ion-title>
+    <ion-buttons end>
+      <button *ngIf="status_rede" ion-button round color="dark" round on-click="salvarIngressos(ingresso)">
+        <ion-icon ios="ios-cloud-download" md="md-cloud-download"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="common-bg">
+  <p style="margin:10px;">
+    <strong>Ingressos:</strong>
+  </p>
+  <ion-card class="card" *ngFor='let ingresso of ingresso'>
+    <ion-list id="festa-list3">
+      <ion-item id="festa-list-item20" on-click="goToIngresso(ingresso)">
+        <ion-icon name="pricetag" item-left></ion-icon>
+        <h1>
+          <strong>{{ ingresso.cd_codigo }}</strong>
+        </h1>
+        <h2>
+          <strong>{{ ingresso.no_festa }}</strong>
+        </h2>
+        <p>{{ ingresso.no_lote }} </p>
+        <p style="color: rgb(238, 11, 11)">{{ ingresso.dc_checkin }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

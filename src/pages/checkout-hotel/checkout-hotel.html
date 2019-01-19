@@ -1,0 +1,74 @@
+<!-- -->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      <span class="text-primary">Hotel Checkout</span>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="checkout-hotel detail-bg">
+  <div class="card round">
+    <div class="hotel-bg" [ngStyle]="{'background-image': 'url(' + hotel.thumb + ')'}">
+      <div class="bg-filter" text-center>
+        <div>
+          <h5 ion-text class="text-white" no-margin>{{ hotel.name }}</h5>
+          <span ion-text class="text-white">{{ dateFrom | date: 'MMM dd, yyyy'}} - {{ dateTo | date: 'MMM dd, yyyy'}}</span>
+          <div margin-top>
+            <span ion-text color="light">{{ hotel.address }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-bottom" padding>
+      <h5 no-margin ion-text color="primary" class="bold">{{ room.name }}</h5>
+      <span ion-text>{{ room.beds }}</span>
+      <div margin-top>
+        <ion-icon name="md-calendar" color="primary"></ion-icon>
+        <span ion-text>{{ nights }} nights</span>
+      </div>
+      <div>
+        <ion-icon name="person" color="primary"></ion-icon>
+        <span ion-text>{{ guests }} guests</span>
+      </div>
+    </div>
+
+    <!--total price-->
+    <div padding>
+      <h6 class="pull-left mt-half" no-margin ion-text>Total with Tax</h6>
+      <h4 class="pull-right bold" ion-text color="dark" no-margin>{{ nights * room.price | currency:'USD':true }}</h4>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <!--more info-->
+  <div class="card round" margin-top>
+    <ion-item class="no-border">
+      <ion-icon name="contact" item-left color="primary"></ion-icon>
+      <div>
+        <span class="bold" ion-text color="primary">Guest Details</span>
+        <br/>
+        <span ion-text>Enter your information</span>
+      </div>
+    </ion-item>
+  </div>
+
+  <!--payment info-->
+  <div class="card round" margin-top>
+    <ion-item class="no-border">
+      <ion-icon name="ios-card" item-left color="primary"></ion-icon>
+      <div>
+        <span class="bold" ion-text color="primary">Payment method</span>
+        <br/>
+        <span ion-text>Enter credit card</span>
+      </div>
+    </ion-item>
+  </div>
+
+  <!--submit button-->
+  <button ion-button class="round" color="primary" margin-top full tappable (click)="send()">SEND</button>
+</ion-content>

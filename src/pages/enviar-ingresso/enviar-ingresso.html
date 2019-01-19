@@ -1,0 +1,36 @@
+<!-- -->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <span class="text-primary">Enviar este Ingresso</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="checkout-hotel detail-bg">
+  <div class="card round">
+    <div class="hotel-bg" style="background-image: url('assets/img/2MYwCJYyS42JZfl0ENS8_user.jpg');background-repeat:no-repeat;">
+      <div class="bg-filter" text-center>
+
+      </div>
+    </div>
+
+    <div class="border-bottom" text-center padding>
+      <p no-margin ion-text color="primary" class="bold">
+        *Para saber o código do seu amigo, basta abrir o menu no canto superior esquerdo do aplicativo do seu amigo,
+        depois abra "Minha Conta"
+      </p>
+      <p no-margin ion-text color="primary" class="bold">
+        <ion-input type="text" [(ngModel)]="ingresso.amigo" name="amigo" placeholder="Código:"></ion-input>
+      </p>
+    </div>
+    <!--total price-->
+  </div>
+  <!--btn fazer o checkin-->
+  <div class="border-bottom" text-center padding>
+    <button ion-button block color="primary" (click)="submit()">
+      <ion-icon ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon> Enviar Ingresso
+    </button>
+  </div>
+</ion-content>

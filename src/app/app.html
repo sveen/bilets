@@ -1,0 +1,87 @@
+<ion-menu side="left" id="authenticated" [content]="content">
+  <ion-header>
+    <ion-toolbar class="user-profile" no-padding>
+
+      <ion-list no-margin>
+        <ion-item *ngIf="usuario.id">
+          <ion-avatar item-start>
+           <img src="{{img}}">
+          </ion-avatar>
+          <h2 class="bold">{{ usuario.nome }}</h2>
+          <h3 ion-text color="secondary">{{ usuario.email }}</h3>
+          <div padding-top *ngIf="usuario.id">
+            <button ion-button icon-left small color="secondary" menuClose="" on-click="goToAccount()">
+              <ion-icon name="contact"></ion-icon>
+              Editar Perfil
+            </button>
+            <button ion-button icon-left small color="secondary" menuClose="" on-click="goToLogout()">
+              Sair
+              <ion-icon name="log-out"></ion-icon>
+            </button>
+          </div>
+          <div padding-top *ngIf="!usuario.id">
+            <button ion-button icon-left small color="secondary" menuClose="" on-click="goToAccount()">
+              <ion-icon ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon>
+              Fazer Login
+            </button>
+          </div>
+        </ion-item>
+      </ion-list>
+
+      <ion-grid no-padding>
+        <ion-row class="other-data" no-padding>
+          <ion-col text-center class="column">
+            <span ion-text color="light" class="bold">Meu Código</span>
+            <h5 ion-text no-margin class="text-1x text-white">{{usuario.id}}</h5>
+          </ion-col>
+          <ion-col text-center class="column">
+            <span ion-text color="light" class="bold">Localização</span>
+            <h5 ion-text no-margin class="text-1x text-white">Bahia</h5>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content color="primary">
+
+    <ion-list class="user-list">
+      <button ion-item class="text-1x" on-click="goToHome()" menuClose="">
+        <ion-icon ios="logo-buffer" md="logo-buffer" color="primary"></ion-icon>
+        <span ion-text color="primary"> Festas na Região</span>
+      </button>
+      <button *ngIf="usuario.id" ion-item class="text-1x" on-click="goToMeusIngressos()" menuClose="">
+        <ion-icon name="pricetags" color="primary"></ion-icon>
+        <span ion-text color="primary"> Meus ingressos</span>
+      </button>
+      <button *ngIf="usuario.id" ion-item class="text-1x" on-click="goToConversas()" menuClose="">
+        <ion-icon name="ios-chatbubbles-outline" color="primary"></ion-icon>
+        <span ion-text color="primary"> Minhas Conversas</span>
+      </button>
+      <button *ngIf="usuario.id" ion-item class="text-1x" on-click="goToPedidos()" menuClose="">
+        <ion-icon ios="ios-basket" md="md-basket" color="primary"></ion-icon>
+        <span ion-text color="primary"> Meus Pedidos</span>
+      </button>
+      <!--<button ion-item class="text-1x" on-click="goToComprarCredito()" menuClose="">
+        <ion-icon name="card" color="primary"></ion-icon>
+        <span ion-text color="primary"> Comprar Crédito</span>
+      </button>-->
+      <button *ngIf="usuario.id" ion-item class="text-1x" on-click="goToAccount()" menuClose="">
+        <ion-icon name="contact" color="primary"></ion-icon>
+        <span ion-text color="primary"> Minha Conta</span>
+      </button>
+      <button *ngIf="!usuario.id" ion-item class="text-1x" on-click="goToAccount()" menuClose="">
+        <ion-icon name="contact" color="primary"></ion-icon>
+        <span ion-text color="primary"> Fazer Login</span>
+      </button>
+      <button ion-item class="text-1x" on-click="goToAjuda()" menuClose="">
+        <ion-icon name="help-buoy" color="primary"></ion-icon>
+        <span ion-text color="primary"> Ajuda</span>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

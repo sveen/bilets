@@ -1,0 +1,34 @@
+<!-- -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle color="primary">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="text-primary">
+        <strong>Meus Pedidos</strong>
+      </span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="common-bg">
+  <p style="margin:10px;">
+    <strong>Pedidos:</strong>
+  </p>
+  <ion-card class="card" *ngFor='let venda of venda'>
+    <ion-list id="festa-list3">
+      <ion-item id="festa-list-item20">
+        <ion-icon ios="ios-basket" md="md-basket" color="primary" item-left></ion-icon>
+        <h3>
+          <strong>{{ venda.no_festa }}</strong>
+        </h3>
+        <h2>
+          <strong>{{ venda.no_lote }}</strong>
+        </h2>
+        <p>{{ venda.dt_data }}</p>
+        <p style="color: rgb(62, 48, 253)" *ngIf="venda.id_status">{{ venda.id_status }}</p>
+        <p style="color: rgb(238, 11, 11)" *ngIf="!venda.id_status">Pendente</p>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

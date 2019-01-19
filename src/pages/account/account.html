@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar class="nav-transparent" color="primary">
+    <ion-title>Meu Perfil</ion-title>
+    <ion-buttons end>
+      <button ion-button round color="dark" round on-click="logof()">
+        <ion-icon name="log-in"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="login-content">
+
+    <!-- Logo -->
+    <div padding text-center>
+      <div class="logo"></div>
+      <p ion-text class="text-primary" no-margin>
+        * atualizar seu Perfil
+      </p>
+    </div>
+    <div padding text-center>
+    <ion-avatar item-start>
+      <img class="image" src="{{img}}">
+    </ion-avatar>
+    <button ion-button padding color="primary" tappable on-click="goToFoto()" BLOCK text-center>
+      ATUALIZAR FOTO do PERFIL
+    </button>
+    </div>
+    <!-- Login form -->
+    <form class="list-form">
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="person" item-start class="text-primary"></ion-icon>
+          Meu Código:
+        </ion-label>
+        <ion-input type="text" value="{{ usuario.id }}" disabled></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="person" item-start class="text-primary"></ion-icon>
+          Nome
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.nome" name=˜nome˜ value="{{ usuario.nome }}" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+          Email
+        </ion-label>
+        <ion-input type="email" [(ngModel)]="usuario.email" name=˜email˜ value="{{ usuario.email }}" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="call" item-start class="text-primary"></ion-icon>
+          Telefone
+        </ion-label>
+        <ion-input type="tel" [(ngModel)]="usuario.telefone" name=˜telefone˜ value="{{ usuario.telefone }}" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="contact" item-start class="text-primary"></ion-icon>
+          Nº do RG
+        </ion-label>
+        <ion-input type="number" [(ngModel)]="usuario.rg" name=˜rg˜ value="{{ usuario.rg }}" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+          Senha
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="usuario.password" name=˜password˜ required></ion-input>
+      </ion-item>
+
+    </form>
+
+    <div margin-top padding text-center>
+      <button ion-button color="secondary" tappable on-click="logof()" BLOCK>
+        SAIR
+      </button>
+      <button ion-button color="primary" tappable on-click="submit()" BLOCK>
+        ATUALIZAR DADOS
+      </button>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,44 @@
+<!-- -->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <span class="text-primary">{{ ingresso.no_festa}}</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="checkout-hotel detail-bg">
+  <div class="card round">
+    <div class="hotel-bg" style="background-image: url('assets/img/checkin.png');background-repeat:no-repeat;">
+      <div class="bg-filter" text-center>
+        <div>
+          <h5 ion-text class="text-white" no-margin> {{ ingresso.no_festa}}</h5>
+          <div margin-top>
+            <h5 ion-text class="text-white" no-margin>{{ ingresso.no_lote}}</h5>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="border-bottom" text-center padding>
+      <p no-margin ion-text color="primary" class="bold">* Você poderá fazer ckeckin no dia da festa, somente quando estiver na presença da pessoa responsável para conferência</p>
+    </div>
+
+    <!--total price-->
+  </div>
+
+  <!--btn fazer o checkin-->
+  <div class="border-bottom" text-center padding>
+    <button ion-button block color="primary" on-click="goToCheckin()">
+      <ion-icon ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon> Confirmar Checkin
+    </button>
+  </div>
+
+
+
+
+
+
+</ion-content>
